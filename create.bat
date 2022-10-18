@@ -51,6 +51,9 @@ call npm init --prefix /%workDir%
 :: Defenie les differents champs de package.json pour parcel
 @REM call npm pkg set scripts.start="parcel" scripts.build="parcel build" source="public/index.html" main="src/scripts/index.js" browserslist="src/scripts/index.js"
 echo [7;32mpackage.json[0m [32mhas been successfully created ![0m
+echo [7;36mInstalling[0m [36mdependencies of package.json...[0m
+call npm i
+echo [32mDependencies are[0m [7;32minstaled[0m
 echo. %blank%
 git init
 git add *
