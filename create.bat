@@ -4,6 +4,7 @@ echo →[7;36mcreate.bat[0m [36mis running[0m
 chcp 65001
 set blank=
 set URL=https://github.com/Artis84/Template/archive/refs/heads/main.zip
+set TOKEN = %Token%
 
 echo. %blank%
 echo. %blank%
@@ -63,7 +64,7 @@ git commit -m "initial commit 🎉"
 echo →[32mCode[0m [7;32mcommited[0m
 echo. %blank%
 echo →[36mCreation of the [0m [7;36mGitHub repository[0m
-curl -i -H "Accept: application/vnd.github+json" -H "Authorization: Bearer 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" https://api.github.com/user/repos -d "{\"name\":\"%workDir%\",\"description\":\"Project %workDir% repository 😮!\"}\"
+curl -i -H "Accept: application/vnd.github+json" -H "Authorization: Bearer %TOKEN%" https://api.github.com/user/repos -d "{\"name\":\"%workDir%\",\"description\":\"Project %workDir% repository 😮!\"}\"
 echo →[32mGitHub repository[0m [7;32mcreated[0m
 echo. %blank%
 echo →[36mThe code is being[0m [7;36mpushed[0m
