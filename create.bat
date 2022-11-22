@@ -57,6 +57,16 @@ echo →[7;36mInstalling[0m [36mdependencies of package.json...[0m
 call npm i
 echo →[32mDependencies are[0m [7;32minstaled[0m
 echo. %blank%
+set /p eslintOption="Would you like use eslint for your project ? (y/n) "
+if "%eslintOption%"=="y" goto y
+if "%eslintOption%"=="n" goto n
+:y
+call npm init @eslint/config
+:n
+set /p eslintOption="Would you like a git repositorie ? (y/n) "
+if "%eslintOption%"=="y" goto y
+if "%eslintOption%"=="n" goto n
+:y
 echo →[7;36mCommited[0m [36mthe code[0m
 git init
 git add *
@@ -70,5 +80,6 @@ echo. %blank%
 echo →[36mThe code is being[0m [7;36mpushed[0m
 git remote add origin git@github.com:Artis84/%workDir%.git
 git push -u origin main
+:n
 echo. %blank%
 echo [7;32m ► Done ◄ [0m
