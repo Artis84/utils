@@ -4,6 +4,7 @@ echo →[7;36mcreate.bat[0m [36mis running[0m
 chcp 65001
 set blank=
 set URL=https://github.com/Artis84/Template/archive/refs/heads/main.zip
+set URL_PACKAGE=https://github.com/Artis84/config-files/archive/refs/heads/main.zip
 set TOKEN = %Token%
 
 echo. %blank%
@@ -62,10 +63,19 @@ if "%eslintOption%"=="y" goto y
 if "%eslintOption%"=="n" goto n
 :y
 call npm init @eslint/config
+::Importation des fichiers de configuration via github
 :n
+echo →[36mDownloading and extracting[0m [7;36mconfig.zip...[0m
+echo. %blank%
+curl -L -O %URL_PACKAGE%
+tar -xf main.zip --strip=1
+echo. %blank%
+rm -r main.zip
+echo. %blank%
 set /p eslintOption="Would you like a git repositorie ? (y/n) "
 if "%eslintOption%"=="y" goto y
 if "%eslintOption%"=="n" goto n
+::Commit code on repo
 :y
 echo →[7;36mCommited[0m [36mthe code[0m
 git init
